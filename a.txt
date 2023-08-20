@@ -3,3 +3,7 @@ xxxx
 aaa
 qqq
 master
+
+
+        bus.setProperty("http.conduit.max.idle.connections", "5");
+        bus.setProperty("http.conduit.max.total.connections", "10");
