@@ -1,5 +1,22 @@
-bbssadxc
-xxxx
-aaa
-qqq
-master
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Identity template: copy all elements and attributes as-is -->
+  <xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Match the <age> and <height> elements and their content, ignore everything else -->
+  <xsl:template match="age | height">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Ignore all other elements except <Employees> and <emp> -->
+  <xsl:template match="*">
+    <xsl:apply-templates select="emp"/>
+  </xsl:template>
+
+</xsl:stylesheet>
