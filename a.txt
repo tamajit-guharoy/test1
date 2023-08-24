@@ -1,5 +1,30 @@
-bbssadxc
-xxxx
-aaa
-qqq
-master
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Match the root element -->
+  <xsl:template match="Employees">
+    <xsl:copy>
+      <xsl:apply-templates select="all"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Match the 'all' element -->
+  <xsl:template match="all">
+    <xsl:copy>
+      <xsl:apply-templates select="emp"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Match the emp element and copy only age and height elements -->
+  <xsl:template match="emp">
+    <xsl:copy>
+      <xsl:copy-of select="age"/>
+      <xsl:copy-of select="height"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Ignore other elements -->
+  <xsl:template match="text() | *">
+    <xsl:apply-templates select="*"/>
+  </xsl:template>
+
+</xsl:stylesheet>
