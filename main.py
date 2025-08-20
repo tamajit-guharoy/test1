@@ -125,3 +125,8 @@ pytest-playwright==0.4.2
 # FastAPI Framework
 fastapi==0.104.1
 uvicorn==0.24.0
+
+
+"C:\Program Files\Google\Chrome\Application\chrome.exe"    --remote-debugging-port=9222 --user-data-dir="C:\Users\guhar\AppData\Local\Google\Chrome\User Data\Profile30"
+
+netstat -ano | findstr :9222
